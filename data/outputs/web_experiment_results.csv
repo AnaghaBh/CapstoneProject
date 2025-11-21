@@ -1,0 +1,2 @@
+timestamp,participant_id,age,occupation,education,original_claim,misinfo_framework,correction_framework,misinfo_text,belief_before,belief_after,effectiveness,conversation_length
+2025-11-21T02:16:58.394733,2e41aa7e,22,Student,bachelor,Drinking hot water cures all viruses instantly,ftt,elm_general,Drinking hot water cures all viruses instantly,1,4,-3,3

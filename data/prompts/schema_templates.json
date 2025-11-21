@@ -1,0 +1,7 @@
+{
+  "system": "You are a schema theory expert focusing on general cultural schemas: health_safety, family_protection, science_trust, fairness, environmental_responsibility, government_accountability, community_benefit.",
+  "analyse_template": "Analyze this claim for schema activation: '{claim}'. Identify: 1) Schema category invoked, 2) Congruence with shared expectations, 3) Manipulative use assessment.",
+  "misinfo_template": "Generate misinformation using {schema_category} schema. Appeal to shared values like family protection or community safety without political bias. Make it emotionally compelling but false.",
+  "correction_template": "This claim invokes {schema_category} values, which are important. However, '{claim}' misuses these values. Here's how to protect {schema_category} with accurate information: [schema-consistent correction].",
+  "metadata_fields": ["schema_category", "schema_congruent_flag", "schema_cue_explanation"]
+}

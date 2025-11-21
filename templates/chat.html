@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .statement-reminder {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #6c757d;
+            font-style: italic;
+        }
+        .chat-container {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fafafa;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .user-message {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+        .bot-message {
+            background-color: #f1f8e9;
+            border-left: 4px solid #4caf50;
+        }
+        .message-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .user-label {
+            color: #1976d2;
+        }
+        .bot-label {
+            color: #388e3c;
+        }
+        .chat-input {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .chat-input input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .send-btn {
+            background-color: #2196f3;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .send-btn:hover {
+            background-color: #1976d2;
+        }
+        .final-rating {
+            background-color: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 2px solid #ff9800;
+        }
+        .rating-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #e65100;
+        }
+        .rating-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .rating-option {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background-color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .rating-option input[type="radio"] {
+            margin-right: 10px;
+        }
+        .finish-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .finish-btn:hover {
+            background-color: #f57c00;
+        }
+        .instruction {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Discussion</h2>
+        
+        <p class="instruction">
+            Feel free to ask questions or share your thoughts about the statement below. An AI assistant will discuss it with you.
+        </p>
+        
+        <div class="statement-reminder">
+            <strong>Statement:</strong> "{{ misinformation }}"
+        </div>
+        
+        <div class="chat-container" id="chatContainer">
+            {% if conversation %}
+                {% for msg in conversation %}
+                    <div class="message user-message">
+                        <div class="message-label user-label">You:</div>
+                        <div>{{ msg.user }}</div>
+                    </div>
+                    <div class="message bot-message">
+                        <div class="message-label bot-label">Assistant:</div>
+                        <div>{{ msg.bot }}</div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div style="text-align: center; color: #999; padding: 20px;">
+                    Start the conversation by asking a question or sharing your thoughts below.
+                </div>
+            {% endif %}
+        </div>
+        
+        <form method="POST" class="chat-input">
+            <input type="text" name="message" placeholder="Type your message here..." required>
+            <button type="submit" class="send-btn">Send</button>
+        </form>
+        
+        <div class="final-rating">
+            <form method="POST">
+                <div class="rating-title">After our discussion, how much do you believe the original statement?</div>
+                
+                <div class="rating-options">
+                    <label class="rating-option">
+                        <input type="radio" name="final_rating" value="1" required>
+                        <span><strong>1 - Completely False</strong></span>
+                    </label>
+                    
+                    <label class="rating-option">
+                        <input type="radio" name="final_rating" value="2" required>
+                        <span><strong>2 - Mostly False</strong></span>
+                    </label>
+                    
+                    <label class="rating-option">
+                        <input type="radio" name="final_rating" value="3" required>
+                        <span><strong>3 - Unsure</strong></span>
+                    </label>
+                    
+                    <label class="rating-option">
+                        <input type="radio" name="final_rating" value="4" required>
+                        <span><strong>4 - Mostly True</strong></span>
+                    </label>
+                    
+                    <label class="rating-option">
+                        <input type="radio" name="final_rating" value="5" required>
+                        <span><strong>5 - Completely True</strong></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="finish-btn">Finish Study</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-scroll to bottom of chat
+        const chatContainer = document.getElementById('chatContainer');
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    </script>
+</body>
+</html>

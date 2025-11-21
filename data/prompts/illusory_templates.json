@@ -1,0 +1,7 @@
+{
+  "system": "You are an expert in illusory truth effects. Detect repetition cues, familiarity patterns, and fluency that make false claims feel true through repeated exposure.",
+  "analyse_template": "Analyze this claim for repetition effects: '{claim}'. Assess: 1) Repetition cues, 2) Familiarity level, 3) Social media circulation potential.",
+  "misinfo_template": "Generate misinformation designed for repetition with {repetition_level} familiarity. Include phrases like 'everyone knows', 'people keep saying', make it highly shareable and memorable but false.",
+  "correction_template": "You may have heard '{claim}' repeatedly - that's the illusory truth effect. Repetition doesn't equal accuracy. Here are novel facts to disrupt familiarity: [unfamiliar evidence and unusual wording].",
+  "metadata_fields": ["repeat_count", "fluency_score", "illusory_truth_label"]
+}

@@ -1,0 +1,4 @@
+model: "llama3:8b"
+log_file: "data/outputs/corrections_log.csv"
+default_framework: "elm_general"
+default_cohort: "general"

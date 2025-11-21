@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Evaluation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .statement-box {
+            background-color: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        .statement-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+        .rating-section {
+            background-color: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .rating-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .rating-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .rating-option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .rating-option:hover {
+            background-color: #f0f8ff;
+        }
+        .rating-option input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        .instruction {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Information Statement</h2>
+        
+        <p class="instruction">
+            Please read the following statement carefully and then rate your belief in it.
+        </p>
+        
+        <div class="statement-box">
+            <div class="statement-text">
+                "{{ misinformation }}"
+            </div>
+        </div>
+        
+        <form method="POST">
+            <div class="rating-section">
+                <div class="rating-title">How much do you believe this statement is true?</div>
+                
+                <div class="rating-options">
+                    <label class="rating-option">
+                        <input type="radio" name="belief_rating" value="1" required>
+                        <span><strong>1 - Completely False</strong> - I'm certain this is not true</span>
+                    </label>
+                    
+                    <label class="rating-option">
+                        <input type="radio" name="belief_rating" value="2" required>
+                        <span><strong>2 - Mostly False</strong> - I think this is probably not true</span>
+                    </label>
+                    
+                    <label class="rating-option">
+                        <input type="radio" name="belief_rating" value="3" required>
+                        <span><strong>3 - Unsure</strong> - I'm not sure whether this is true or false</span>
+                    </label>
+                    
+                    <label class="rating-option">
+                        <input type="radio" name="belief_rating" value="4" required>
+                        <span><strong>4 - Mostly True</strong> - I think this is probably true</span>
+                    </label>
+                    
+                    <label class="rating-option">
+                        <input type="radio" name="belief_rating" value="5" required>
+                        <span><strong>5 - Completely True</strong> - I'm certain this is true</span>
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Continue to Discussion</button>
+        </form>
+    </div>
+</body>
+</html>

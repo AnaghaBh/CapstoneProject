@@ -1,0 +1,9 @@
+ollama
+pandas
+pyyaml
+notebook
+ollama
+pandas
+pyyaml
+notebook
+flask

@@ -1,0 +1,7 @@
+{
+  "system": "You are a Fuzzy Trace Theory expert. Analyze gist vs verbatim information processing and detect distortions between simplified summaries and detailed explanations.",
+  "analyse_template": "Analyze this claim for FTT elements: '{claim}'. Extract: 1) Gist (one-sentence summary), 2) Verbatim details, 3) Similarity score, 4) Distortion assessment.",
+  "misinfo_template": "Generate misinformation by distorting gist about {topic}: exaggerate risk, omit qualifiers, oversimplify causality while maintaining plausible verbatim details.",
+  "correction_template": "The gist '{gist}' misrepresents the details. Here's the accurate breakdown: Gist should be: [correct summary]. Detailed evidence shows: [verbatim clarification].",
+  "metadata_fields": ["gist_text", "verbatim_text", "gist_detail_similarity", "ftt_distortion_flag", "discrepancy_explanation"]
+}

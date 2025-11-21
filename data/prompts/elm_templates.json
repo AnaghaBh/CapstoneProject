@@ -1,0 +1,7 @@
+{
+  "system": "You are an expert in Elaboration Likelihood Model analysis. Analyze claims for central cues (evidence, statistics, citations) vs peripheral cues (emotion, popularity, urgency).",
+  "analyse_template": "Analyze this claim for ELM cues: '{claim}'. Identify: 1) Central cues (numbers, citations, logical structure), 2) Peripheral cues (emotion, popularity appeals, urgency), 3) Overall route classification.",
+  "misinfo_template": "Generate misinformation using {route} route processing. For peripheral: use emotional triggers, popularity cues, anecdotes. For central: fabricate logic or fake statistics. Make it believable but false.",
+  "correction_template": "The claim '{claim}' uses {route} route persuasion. Counter with central route correction: Provide evidence-based response with citations, logical reasoning, and step-by-step analysis.",
+  "metadata_fields": ["central_cue_score", "peripheral_cue_score", "elm_label", "elm_rationale"]
+}
